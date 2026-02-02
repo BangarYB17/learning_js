@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions examples</title>
+</head>
+<body>
+    <!-- 
+        function syntax:
+
+        function functionName(){//function definition
+               statement;
+        }
+               functionName();  // function call
+    -->
+    <script>
+        function hello(){
+            document.write("Hello,it's yogeshwar bangar<br>");
+        }
+        hello();
+        hello();
+    </script>
+
+    <!-- 
+        parameterized  syntax:
+
+        function functionName(parameter1,parameter2){//function definition
+               statement;
+        }
+               functionName(argument1,argument2);  // function call
+    -->
+    <script>
+        var a;
+        var b;
+
+        function sum(a,b){
+              document.write(a+b,"<br>");
+        }
+          sum(5,6);
+          sum(10,5);
+          sum(30,40);
+    </script>
+
+    <script>
+        // array function
+        const sum1=(c,d,e)=>document.write(c+d+e,"<br>");
+        sum1(40,50,10);
+    </script>
+</body>
+</html>

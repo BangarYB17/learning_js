@@ -15,38 +15,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 border rounded border-dark mt-5">
-                    <h1 class="text-center">Simple Calculator</h1>
-
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Enter Number 1</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Enter Number 2</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1">
-                    </div>
-
-                    <div class="row mb-3">
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-warning">+</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-warning">-</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-warning">/</button>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="button" class="btn btn-warning">*</button>
-                        </div>
-                    </div>
-
-                    <div>
+                        <h1 class="text-center">Simple Calculator</h1>
+                        <form name="myform">
                         <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Result</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                            <label for="exampleFormControlInput1" class="form-label">Enter Number 1</label>
+                            <input type="number" name="n1" class="form-control" id="exampleFormControlInput1">
                         </div>
-                    </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Enter Number 2</label>
+                            <input type="number" name="n2" class="form-control" id="exampleFormControlInput1">
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-warning" onclick="add()">+</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-warning" onclick="sub()">-</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-warning" onclick="div()">/</button>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-warning" onclick="multi()">*</button>
+                            </div>
+                        </div>
+                        <div>
+                                <button type="button" class="btn btn-primary mb-3" onclick="reset()" >Reset</button>
+                        </div>
+
+                        <div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Result</label>
+                                <input type="reset" class="form-control" id="exampleFormControlTextarea1"name="res" disabled>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="col-md-6">
@@ -55,6 +59,44 @@
             </div>
         </div>
     </section>
+
+    <script>
+        var a,b,result;
+    
+        // addition function
+        function add(){
+            a=Number(document.myform.n1.value);
+            b=Number(document.myform.n2.value);
+            result=a+b;
+
+            document.myform.res.value=result.toFixed(2);
+        }
+        //subtraction function
+        function sub(){
+            a=Number(document.myform.n1.value);
+            b=Number(document.myform.n2.value);
+            result=a-b;
+
+            document.myform.res.value=result.toFixed(2);
+        }
+        //division function
+         function div(){
+            a=Number(document.myform.n1.value);
+            b=Number(document.myform.n2.value);
+            result=a/b;
+
+            document.myform.res.value=result.toFixed(2);
+        }
+        //multiplication function
+         function multi(){
+            a=Number(document.myform.n1.value);
+            b=Number(document.myform.n2.value);
+            result=a*b;
+
+            document.myform.res.value=result.toFixed(2);
+        }
+      
+    </script>
 
 
 </body>

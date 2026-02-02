@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Elements</title>
+</head>
+<body>
+    <script>
+        // Array Modify and delete
+        var a=["Yogeshwar",21,"Male","Web Developer"];
+
+        document.write(a,"<br>");
+
+        a[1]=32;  //update index value
+        document.write(a,"<br>");
+
+        delete a[3]; //delete index value
+        document.write(a,"<br>");
+
+    </script>
+
+    <script>
+        // sorting and reverse
+
+        var b=["Jayesh","Vaibhav","Eknath","Yogeshwar","Sagar","Arbaj"];
+        document.write(b,"<br>");
+
+        b.sort(); //a to z asc
+        document.write(b,"<br>");
+        
+         b.reverse();  //reverse
+        document.write(b,"<br>");
+    </script>
+
+    <script>
+        // pop and push
+         var c=["Jayesh","Vaibhav","Eknath","Yogeshwar","Sagar","Arbaj"];
+           document.write(c,"<br");
+            c.pop();
+            c.pop();
+            c.pop();
+            document.write(c,"<br");
+
+            c.push("Rohan");
+            c.push("Ram");
+           
+            document.write(c,"<br");
+    </script>
+<!-- 
+    <script>
+        // shift and unshift
+        var d = ["Jayesh","Vaibhav","Eknath","Yogeshwar","Sagar","Arbaj"];
+        document.write(d,"<br>");
+
+        d.shift();
+        d.shift();
+        document.write(d,"<br>");
+
+        d.unshift("meghnath");
+         document.write(d,"<br>");
+
+    </script> -->
+    <br>
+
+    <script>
+        var a=["MI","RCB","RR","SRH","DC"];
+        var b=["CSK","LSG","PK","GT"];
+        var x=["KKR","IND","AUS",""]
+
+        var c=a.concat(b,x);
+        document.write(c,"<br>");
+
+        var d= c.join("/");
+         document.write(d,"<br>")
+
+        //  var e=c.concat(x);
+        //  document.write(e,"<br>")
+    </script>
+</body>
+</html>
