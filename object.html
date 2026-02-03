@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+
+<body>
+    <script>
+        var a = {
+            fname: "yogeshwar",
+            lname: "bangar",
+            age: 30,
+            email: "yb@gmail.com",
+            players: ["sachin", "yuvraj", "dhoni", "rahul"],
+            address: {
+                city: "solapur",
+                country: "india",
+                state: "Maharashtra"
+            },
+            phone: 8411079879,
+            message: "Today match ind vs nz 2026"
+        };
+        document.write("My Name is :" + a.fname + "<br>"
+         +"My Last Name is :" + a.lname + "<br>" 
+         +"My Email is :" + a.email + "<br>"
+         +"My Age is:" + a.age + "<br>" 
+         +"My City is:" + a.address.city + "<br>" 
+         +"My Country is:" + a.address.country + "<br>" 
+         +"My State is:" + a.address.state + "<br>"
+         +"My Favorite Player is :" + a.players[1] + "<br>" 
+         +"My Phone No. : " + a.phone + "<br>" 
+         + "Match:"+ a.message)
+    </script>
+</body>
+
+</html>
