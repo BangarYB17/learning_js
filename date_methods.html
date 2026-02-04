@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Methods</title>
+</head>
+
+<body>
+    <script>
+        var now = new Date();
+        document.write(now, "<br>");
+        document.write(now.toDateString(), "<br>");
+        document.write(now.getDate(), "<br>");
+        document.write(now.toLocaleDateString(), "<br>");
+        document.write(now.getMonth() + 1, "<br>"); // index start fromm 0 like jan=0 , feb=1 ......
+        document.write(now.getDay(), "<br>");   //1:mon ,2:tue ,wed:3,
+        document.write(now.getFullYear(), "<br>");
+        document.write(now.getHours(), "<br>");
+        document.write(now.getMinutes(), "<br>");
+        document.write(now.getSeconds(), "<br>");
+        document.write(now.getHours() + ":" + now.getMinutes()+"<br>");
+        document.write(now.toLocaleTimeString(),"<br>")
+    </script>
+</body>
+
+</html>
