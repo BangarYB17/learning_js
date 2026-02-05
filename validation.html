@@ -15,68 +15,206 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <form class="p-3 mt-4 mb-5 shadow-lg">
+                    <form id="contactForm" class="p-3 mt-4 mb-5 shadow-lg" onsubmit="return validate()">
                         <h1 class="text-center">Contact Us</h1>
+                        <!-- name -->
                         <div class="mb-2">
                             <label for="exampleFormControlInput1" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                            <input type="text" id="name" name="name" class="form-control" 
                                 placeholder="Your Name">
+                            <span class="text-danger" id="nameError"></span>
                         </div>
+
+                        <!-- email -->
                         <div class="mb-2">
                             <label for="exampleFormControlInput1" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                            <input type="email" class="form-control" id="email" name="email"
                                 placeholder="Your Email">
+                            <span class="text-danger" id="emailError"></span>
                         </div>
+
+                        <!-- mobile -->
                         <div class="mb-2">
                             <label for="exampleFormControlInput1" class="form-label">Mobile Number:</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1"
+                            <input type="number" class="form-control" id="mobile" name="mobile"
                                 placeholder="Your Mobile Number">
+                            <span class="text-danger" id="mobileError"></span>
                         </div>
+
+                        <!-- password -->
                         <div class="mb-2">
                             <label for="exampleFormControlInput1" class="form-label">Enter Password:</label>
-                            <input type="password" class="form-control" id="exampleFormControlInput1"
+                            <input type="password" class="form-control" id="password" name="password"
                                 placeholder="Enter Password">
+                            <span class="text-danger" id="passwordError"></span>
                         </div>
+
+                        <!-- confirm password -->
                         <div class="mb-2">
                             <label for="exampleFormControlInput1" class="form-label">Confirm Password:</label>
-                            <input type="password" class="form-control" id="exampleFormControlInput1"
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                                 placeholder="Confirm Password">
+                            <span class="text-danger" id="confirmPasswordError"></span>
                         </div>
+
+                        <!-- message -->
                         <div class="mb-2">
                             <label for="exampleFormControlTextarea1" class="form-label">Message:</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            <textarea class="form-control" id="message" name="message" rows="3"
                                 placeholder="Your Message"></textarea>
+                            <span class="text-danger" id="messageError"></span>
                         </div>
+
+                        <!-- gender -->
                         <div class="mb-2">
                             <label for="exampleFormControlTextarea1" class="form-label">Gender:</label><br>
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                            <input class="form-check-input" type="radio" name="gender" id="male">
                             <label class="form-check-label" for="radioDefault1">
                                 Male
                             </label>
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" >
+                            <input class="form-check-input" type="radio" name="gender" id="female" >
                             <label class="form-check-label" for="radioDefault2">
                                 Female
                             </label>
-                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3" >
+                            <input class="form-check-input" type="radio" name="gender" id="other" >
                             <label class="form-check-label" for="radioDefault3">
                                 Others
                             </label>
                         </div>
+                        <span class="text-danger" id="genderError"></span>
+
+                        <!-- terms -->
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" value="" id="checkDefault" >
+                            <input class="form-check-input" type="checkbox" value="" id="agree" name="agree" >
                             <label class="form-check-label" for="checkDefault">
                                 I agree to the terms & conditions
                             </label>
                         </div>
+                        <span class="text-danger" id="agreeError"></span>
                         <div>
-                            <button type="button" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
+                        
                     </form>
                 </div>
                 <div class="col-md-3"></div>
             </div>
         </div>
     </section>
+
+    <script>
+        function validate(){
+        //Get Form Values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const agree = document.getElementById('agree').checked;
+        const gender = document.querySelector('input[name="gender"]:checked');
+        
+
+        //Error Spans
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const mobileError = document.getElementById('mobileError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        const messageError = document.getElementById('messageError');
+        const genderError = document.getElementById('genderError');
+        const agreeError = document.getElementById('agreeError');
+
+        //Clear Previous Error Message
+        nameError.textContent = "";
+        emailError.textContent = "";
+        mobileError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+        messageError.textContent = "";
+        genderError.textContent = "";
+        agreeError.textContent = "";
+
+        let isValid = true;
+
+        // Validate Fields
+
+        // name
+        if(name === ""){
+            nameError.textContent = "Please enter your name.";
+            isValid = false;
+        }else if(name.length<3){
+            nameError.textContent = "Please enter at least 3 character."
+            isValid = false;
+        }
+
+        // email
+        if(email === ""){
+            emailError.textContent = "Please enter your email.";
+            isValid = false;
+        }else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)){
+            emailError.textContent = "Please enter valid Email address."
+            isValid = false;
+        }
+
+        // mobile
+        if(mobile === ""){
+            mobileError.textContent = "Please enter your mobile number.";
+            isValid = false;
+        }else if(!/^[0-9]{10}$/.test(mobile)){
+            mobileError.textContent = "Please enter valid mobile number."
+            isValid = false;
+        }
+
+        //password validation (at least 6 characters , 1 number , 1 special char)
+        const passwordPattern = /^(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{6,}$/   ;
+         if(password === ""){
+            passwordError.textContent = "Please enter a password.";
+            isValid = false;
+        }else if(!passwordPattern.test(password)){
+            passwordError.textContent = "Please enter valid password."
+            isValid = false;
+        }
+
+        // confirm password validation
+         if(confirmPassword === ""){
+            confirmPasswordError.textContent = "Please enter confirm password.";
+            isValid = false;
+        }else if(confirmPassword !== password){
+            confirmPasswordError.textContent = "Password do not match."
+            isValid = false;
+        }
+
+        // message
+        if(message === ""){
+            messageError.textContent = "Please enter your message.";
+            isValid = false;
+        }else if(message.length<50){
+            messageError.textContent = "Please enter message in detail."
+            isValid = false;
+        }
+
+        //gender
+        if(!gender){
+            genderError.textContent = "Please select your gender.";
+            isValid = false;
+        }
+        
+        //agree terms and conditions
+        if(!agree){
+            agreeError.textContent = "you must agree to the terms & conditions.";
+            isValid = false;
+        }
+
+        if(isValid){
+            alert("Form submitted successfully")
+        }
+
+        return isValid;
+    }
+    
+
+    </script>
 </body>
 
 </html>
